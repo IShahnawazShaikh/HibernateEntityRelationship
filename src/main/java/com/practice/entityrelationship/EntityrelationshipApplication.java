@@ -4,6 +4,7 @@ import com.practice.entityrelationship.answer.AnswerEntity;
 import com.practice.entityrelationship.answer.AnswerService;
 import com.practice.entityrelationship.question.QuestionEntity;
 import com.practice.entityrelationship.question.QuestionService;
+import org.aspectj.weaver.patterns.TypePatternQuestions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,24 +27,34 @@ public class EntityrelationshipApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("************* Application started  **************************");
+
 		QuestionEntity question1=new QuestionEntity();
 		question1.setQuestion("What is Java ?");
 		AnswerEntity answer1=new AnswerEntity();
 		answer1.setAnswer("Java is a Programming Language");
 		question1.setAnswer(answer1);
-
+		answer1.setQuestion(question1);
 
 		QuestionEntity question2=new QuestionEntity();
 		question2.setQuestion("What is Collection?");
 		AnswerEntity answer2=new AnswerEntity();
 		answer2.setAnswer("Collection is Framework comprise of interfaces and classes to store data.");
 		question2.setAnswer(answer2);
-
-		questionService.createQuestion(question1);
-		answerService.createAnswer(answer1);
+        answer2.setQuestion(question2);
 
 		questionService.createQuestion(question2);
-		answerService.createAnswer(answer2);
+		questionService.createQuestion(question1);
+
+		/***** Fetching *************/
+
+		QuestionEntity question=questionService.getQuestionById(1L);
+		System.out.println(question.getId() +" - "+question.getQuestion()+" - "+question.getAnswer().getAnswer());
+
+		AnswerEntity answer=answerService.getAnswerById(4L);
+		System.out.println(answer.getId() +" - "+answer.getAnswer()+" - "+answer.getQuestion().getQuestion());
+
+
+
 
 	}
 }

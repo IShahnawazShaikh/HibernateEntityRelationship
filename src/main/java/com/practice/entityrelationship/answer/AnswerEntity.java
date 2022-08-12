@@ -1,5 +1,6 @@
 package com.practice.entityrelationship.answer;
 
+import com.practice.entityrelationship.question.QuestionEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,4 +16,7 @@ public class AnswerEntity {
 
     @Column(name="answer")
     private String answer;
+
+    @OneToOne(mappedBy = "answer",cascade = CascadeType.ALL)
+    QuestionEntity question;
 }

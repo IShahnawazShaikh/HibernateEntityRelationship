@@ -4,6 +4,7 @@ import com.practice.entityrelationship.answer.AnswerEntity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="question")
@@ -17,7 +18,6 @@ public class QuestionEntity {
     @Column(name="question")
     private String question;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="answer_id")
-    private AnswerEntity answer;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)   //
+    private List<AnswerEntity> answer;    // One Question has many answers
 }

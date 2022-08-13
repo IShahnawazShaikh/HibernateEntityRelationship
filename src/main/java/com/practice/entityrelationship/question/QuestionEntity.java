@@ -18,6 +18,6 @@ public class QuestionEntity {
     @Column(name="question")
     private String question;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)   //
-    private List<AnswerEntity> answer;    // One Question has many answers
+    @OneToMany(mappedBy = "question", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<AnswerEntity> answer;       // One Question has many answers
 }

@@ -18,4 +18,8 @@ public class QuestionService {
        Optional< QuestionEntity> optionalQuestionEntity= questionRepository.findById(id);
        return optionalQuestionEntity.get();
     }
+
+    public void saveQuestion(QuestionEntity question1) {
+        questionRepository.save(question1);
+    }
 }

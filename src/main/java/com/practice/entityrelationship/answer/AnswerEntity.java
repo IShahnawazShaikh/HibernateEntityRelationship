@@ -16,8 +16,8 @@ public class AnswerEntity {
 
     @Column(name="answer")
     private String answer;
-//
-//    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-//    @JoinColumn(name="question_id")
-//    QuestionEntity question;
+
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name="question_id")
+    QuestionEntity question;
 }

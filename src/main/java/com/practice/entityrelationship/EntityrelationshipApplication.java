@@ -37,15 +37,15 @@ public class EntityrelationshipApplication implements CommandLineRunner {
 
 		AnswerEntity answer1=new AnswerEntity();
 		answer1.setAnswer("Java is a Programming Language");
-		answer1.setQuestion(question1);
+		//answer1.setQuestion(question1);
 
 		AnswerEntity answer2=new AnswerEntity();
 		answer2.setAnswer("Java is used to develop Application");
-		answer2.setQuestion(question1);
+		//answer2.setQuestion(question1);
 
 		AnswerEntity answer3=new AnswerEntity();
 		answer3.setAnswer("Java support OOPs");
-		answer3.setQuestion(question1);
+		//answer3.setQuestion(question1);
 
 		List<AnswerEntity> answerEntityList= Arrays.asList(answer1,answer2,answer3);
 

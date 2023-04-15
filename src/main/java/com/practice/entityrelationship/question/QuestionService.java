@@ -11,6 +11,7 @@ public class QuestionService {
     @Autowired
     QuestionRepository questionRepository;
     public void createQuestion(QuestionEntity question1) {
+        System.out.println("testing");
         questionRepository.save(question1);
     }
 
